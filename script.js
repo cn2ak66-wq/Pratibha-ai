@@ -1,7 +1,6 @@
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const KEY="pratibhaAI_v3";
 const DEMO_ID="pratibha", DEMO_PASS="Pratibha@123";
-
 const streams={
 "Engineering & Technology":["Software Engineering","AI / Machine Learning","Data Science","Cybersecurity","Cloud & DevOps","Web & Mobile Development","Robotics","IoT","Electronics","Electrical","Mechanical","Civil","Chemical","Aerospace","VLSI / Semiconductor","Biomedical Engineering"],
 "Pure Science":["Physics","Chemistry","Biology","Mathematics","Statistics","Astronomy","Astrophysics","Geology","Materials Science","Research Science"],
@@ -17,7 +16,6 @@ const streams={
 "Science Communication & Media":["Science Communication","Technical Writing","Science Journalism","Medical Writing","Technical Content","Data Storytelling","Digital Media Analytics"],
 "Skilled Technical & Vocational":["Laboratory Technician","Medical Technician","Electronics Technician","Solar Technician","CAD Technician","CNC Technician","Network Technician","Quality Technician","Pharmacy Technician"]
 };
-
 const careerMap={
 "AI / Machine Learning":["AI/ML Engineer","Machine Learning Scientist","AI Product Specialist"],
 "Data Science":["Data Scientist","Data Analyst","Healthcare Data Analyst"],
@@ -104,7 +102,6 @@ function showSection(name){
   if(innerWidth<801)$("#sidebar").classList.remove("open");
   render(name);
 }
-
 function render(name){
   if(name==="dashboard")renderDashboard();
   if(name==="resume")renderResume();
@@ -179,7 +176,6 @@ function renderCareers(){
  $("#careerStream").onchange=draw;$("#careerSearch").oninput=draw;draw();
 }
 function selectCareer(sub,role){state.profile={...state.profile,subfield:sub,goal:role};save();toast("Career preference updated");renderDashboard();showSection("roadmap")}
-
 function renderMentors(){
  const selected=state.profile?.subfield||"";
  $("#mentors").innerHTML=`<div class="card"><div class="section-title"><div><h3>${t("mentorTitle")}</h3><p class="muted">Find women mentors across the full STEM ecosystem.</p></div></div><div class="toolbar"><select id="mentorCategory"><option value="">All STEM categories</option>${Object.keys(streams).map(x=>`<option>${esc(x)}</option>`).join("")}</select><input id="mentorSearch" placeholder="Search mentor, expertise or field..."></div><div id="mentorGrid" class="mentor-grid"></div></div>`;
