@@ -116,7 +116,6 @@ function render(name){
   if(name==="salary")renderSalary();
   if(name==="profile")renderProfile();
 }
-
 function renderDashboard(){
  const p=state.profile||{};
  const sub=currentSub(), roles=careerMap[sub]||["Research Scientist","Data Analyst","STEM Professional"];
@@ -127,7 +126,6 @@ function renderDashboard(){
  <div class="grid two"><div class="card"><div class="section-title"><h3>Recommended roles</h3><span class="pill">${esc(sub)}</span></div><div class="list">${roles.map((r,i)=>`<div class="list-row"><span><b>${esc(r)}</b><small class="muted"> ${i===0?"Best match":"Strong option"}</small></span><button class="btn secondary" onclick="showSection('roadmap')">Plan</button></div>`).join("")}</div></div>
  <div class="card"><div class="section-title"><h3>Current skill gaps</h3><button class="btn ghost" onclick="showSection('resume')">Analyze Resume</button></div>${gaps.slice(0,5).map((g,i)=>`<div style="margin:13px 0"><div class="list-row" style="border:0;padding:0 0 7px"><span>${esc(g)}</span><b>${35+i*7}%</b></div><div class="progress"><i style="width:${35+i*7}%"></i></div></div>`).join("")}</div></div>`;
 }
-
 function renderResume(){
  $("#resume").innerHTML=`<div class="card"><div class="section-title"><div><h3>${t("resumeTitle")}</h3><p class="muted">Upload PDF/DOCX and get score, skills, skill gaps and role recommendations.</p></div></div>
  <div class="dropzone"><p style="font-size:30px">📄</p><h3>Upload your resume</h3><p class="muted">PDF or DOCX • Text is analyzed locally in your browser.</p><label for="resumeFile">Choose Resume</label><input id="resumeFile" type="file" accept=".pdf,.docx,.doc"></div>
@@ -257,7 +255,6 @@ function saveProfile(e){
  state.logged=true;save();closeModal("profileModal");renderAll();toast("Profile saved and personalized");
 }
 function renderAll(){applyLanguage();renderDashboard();renderResume();renderCareers();renderMentors();renderRoadmap();renderInterview();renderCommunity();renderSalary();renderProfile();setupChat();$("#profileTop").textContent=initials(state.profile?.name||"A")}
-
 function login(e){e.preventDefault();if($("#loginId").value.trim()===DEMO_ID&&$("#loginPassword").value===DEMO_PASS){state.logged=true;save();$("#loginScreen").classList.add("hidden");$("#app").classList.remove("hidden");if(!state.profile)openProfile(false);else renderAll()}else toast("Invalid User ID or Password")}
 function logout(){state.logged=false;save();$("#app").classList.add("hidden");$("#loginScreen").classList.remove("hidden");$("#loginForm").reset()}
 function init(){
