@@ -102,6 +102,7 @@ function showSection(name){
   if(innerWidth<801)$("#sidebar").classList.remove("open");
   render(name);
 }
+
 function render(name){
   if(name==="dashboard")renderDashboard();
   if(name==="resume")renderResume();
