@@ -1,2 +1,2 @@
-# Pratibha-ai
+# Pratibha-ai 
 college minor project 
